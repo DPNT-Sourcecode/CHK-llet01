@@ -30,3 +30,9 @@ def BOGOF_offer(items, sku, sku_count, offer):
     if items[sku] < 0:
         items[sku] = 0
     return 0
+
+def n_in_items_offer(items, bundle_items: set[str], bundle_size, bundle_price):
+    # Check if at least bundle_size amount of items is in the basket
+    if sum([list(items.keys()).count(item) for item in bundle_items]) < bundle_size:
+        return 0
+    bundles_basket

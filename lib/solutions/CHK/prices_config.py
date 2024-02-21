@@ -83,11 +83,11 @@ prices = {
         'I': {"price": 35, "offers": {}},
         'J': {"price": 60, "offers": {}},
         'K': {
-            "price": 80,
+            "price": 70,
             "offers": {
                 2: {
                     "offer_function": n_for_m_offer,
-                    "price": 150,
+                    "price": 120,
                     "count": 2,
                     "priority": 1
                 }
@@ -141,7 +141,7 @@ prices = {
                 "offer_count": 1
             }
         }},
-        'S': {"price": 30, "offers": {}},
+        'S': {"price": 20, "offers": {}},
         'T': {"price": 20, "offers": {}},
         'U': {
             "price": 40,
@@ -173,7 +173,7 @@ prices = {
             }
         },
         'W': {"price": 20, "offers": {}},
-        'X': {"price": 90, "offers": {}},
-        'Y': {"price": 10, "offers": {}},
-        'Z': {"price": 50, "offers": {}}
+        'X': {"price": 17, "offers": {}},
+        'Y': {"price": 20, "offers": {}},
+        'Z': {"price": 21, "offers": {}}
     }
