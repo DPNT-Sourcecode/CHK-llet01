@@ -59,12 +59,15 @@ def checkout(skus: str):
             if offer_count > sku_count:
                 break
 
-
-        basket_total += sku_count % closest_smaller_offer * closest_smaller_price
+        # Add the left over individual items to the basket total
+        basket_total += sku_count % closest_smaller_offer * prices[sku]["price"]
+        # Add the offer to the basket total
+        
 
 
 
     return basket_total
+
 
 
 
