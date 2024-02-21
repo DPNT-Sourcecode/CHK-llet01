@@ -14,7 +14,7 @@ def checkout(skus: str):
                     "offer_function": n_for_m_offer,
                     "price": 130,
                     "count": 3,
-                    "priority": 1  # Doesn't matter atm
+                    "priority": 2  # Doesn't matter atm
                 },
                 5: {
                     "offer_function": n_for_m_offer,
@@ -182,6 +182,7 @@ def checkout(skus: str):
 #             }
 #         }
 #     }
+
 
 
 

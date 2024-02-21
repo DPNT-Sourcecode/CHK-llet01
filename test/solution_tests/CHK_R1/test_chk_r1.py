@@ -14,5 +14,12 @@ class TestCHK_R1():
 
     def test_checkout_offer_and_individual(self):
         assert checkout_solution.checkout("AAAAAA") == 250
-        assert checkout_solution.checkout("AAAABBB") ==
+        assert checkout_solution.checkout("AAAABBB") == 255
+
+    def test_checkout_BOGOF_rule(self):
+        assert checkout_solution.checkout("EEB") == 80
+        assert checkout_solution.checkout("EEEB") == 120
+        assert checkout_solution.checkout("EEEBB") == 125
+        assert checkout_solution.checkout("BBEEE") == 125
+
 
