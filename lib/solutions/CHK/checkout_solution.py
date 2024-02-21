@@ -11,7 +11,7 @@ def checkout(skus: str):
             "price": 50,
             "offers": {
                 3: {
-                    "offer": n_for_m_offer,
+                    "offer_function": n_for_m_offer,
                     "price": 130,
                     "count": 3,
                     "priority": 1  # Doesn't matter atm
@@ -23,7 +23,7 @@ def checkout(skus: str):
             "price": 30,
             "offers": {
                 2: {
-                    "offer": n_for_m_offer,
+                    "offer_function": n_for_m_offer,
                     "price": 45,
                     "count": 2,
                     "priority": 2
@@ -42,7 +42,7 @@ def checkout(skus: str):
             "price": 40,
             "offers": {
                 2: {
-                    "offer": x_for_y_offer,
+                    "offer_function": x_for_y_offer,
                     "price": 0,
                     "priority": 1,
                     "offer_sku": "B",
@@ -107,7 +107,7 @@ def checkout(skus: str):
     # Execute the offers in order
     for priority in sorted(offer_queue.keys()):
         basket_total += sum(
-            [offer["offer"](items, offer["sku"], offer["count"], offer["offer"]) for offer in offer_queue[priority]])
+            [offer["offer"]["offer_function"](items, offer["sku"], offer["count"], offer["offer"]) for offer in offer_queue[priority]])
 
     # Add the individual items to the basket total
     for sku, sku_count in items.items():
@@ -175,6 +175,7 @@ def checkout(skus: str):
 #             }
 #         }
 #     }
+
 
 
 
