@@ -1,5 +1,6 @@
 # noinspection PyUnusedLocal
 # skus = unicode string
+from .offer_helper_functions import n_in_items_offer
 from .prices_config import prices
 
 
@@ -18,6 +19,9 @@ def checkout(skus: str):
 
     basket_total = 0
     offer_queue: dict[int, list] = {}
+
+    # Apply bundle offers first
+    basket_total = n_in_items_offer(items, ("S", "T", "X", "Y", "Z"), 3, 45)
 
     # Could iterate over the offers first, remove any items from skus that have been applied,
     # then add the individual charge at the end. The offers would be ordered to favor the customer. A offer is no applied
@@ -132,3 +136,4 @@ def checkout(skus: str):
 #             }
 #         }
 #     }
+
