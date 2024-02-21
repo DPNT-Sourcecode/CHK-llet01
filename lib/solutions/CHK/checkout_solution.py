@@ -55,6 +55,18 @@ def checkout(skus: str):
                     "offer_count": 1
                 }
             }
+        },
+        'F': {
+            "price": 10,
+            "offers": {
+                3: {
+                    "offer_function": BOGOF_offer,
+                    "price": 20,
+                    "count": 3,
+                    "offer_count": 1,
+                    "priority": 1
+                }
+            }
         }
     }
 

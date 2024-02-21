@@ -20,3 +20,13 @@ def x_for_y_offer(items, sku, sku_count, offer):
         items[offer["offer_sku"]] = 0
     # X items will be charged individually at the end
     return 0
+
+def BOGOF_offer(items, sku, sku_count, offer):
+    # check if the offer is possible
+    if sku_count < offer["count"]:
+        return 0
+    # Apply the offer by removing the free items from the basket
+    items[sku] -= (sku_count // offer["count"]) * offer["offer_count"]
+    if items[sku] < 0:
+        items[sku] = 0
+    return 0

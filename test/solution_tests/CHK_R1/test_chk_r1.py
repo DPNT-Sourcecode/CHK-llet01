@@ -1,5 +1,6 @@
 from lib.solutions.CHK import checkout_solution
 
+
 class TestCHK_R1():
     def test_checkout(self):
         assert checkout_solution.checkout("A") == 50
@@ -24,3 +25,11 @@ class TestCHK_R1():
         assert checkout_solution.checkout("BBEEE") == 150
         assert checkout_solution.checkout("EEEEBB") == 160
         assert checkout_solution.checkout("BEBEEE") == 160
+
+    def test_checkout_BOGOF_f_rule(self):
+        assert checkout_solution.checkout("FF") == 20
+        assert checkout_solution.checkout("FFF") == 20
+        assert checkout_solution.checkout("FFFF") == 30
+        assert checkout_solution.checkout("FFFFF") == 40
+        assert checkout_solution.checkout("FFFFFF") == 40
+       
