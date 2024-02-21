@@ -1,5 +1,8 @@
 # noinspection PyUnusedLocal
 # skus = unicode string
+from .offer_helper_functions import *
+
+
 def checkout(skus: str):
     if not isinstance(skus, str):
         return -1
@@ -7,9 +10,12 @@ def checkout(skus: str):
         'A': {
             "price": 50,
             "offers": {
-                3: 130,
+                3: {
+                    "offer": n_for_m_offer,
+                    "price": 130
+                },
                 5: 200
-            }
+            },
         },
         'B': {
             "price": 30,
@@ -33,6 +39,7 @@ def checkout(skus: str):
             }
         }
     }
+
     # Get the list of items with a number per item
     items = {}
     items_list = list(skus)
@@ -43,6 +50,14 @@ def checkout(skus: str):
             items[item] = 1
 
     basket_total = 0
+
+    # Could iterate over the offers first, remove any items from skus that have been applied,
+    # then add the individual charge at the end. The offers would be ordered to favor the customer. A offer is no applied
+    # using a function that returns an updated sku and basket total. This would allow for a more dynamic offer system.
+    # However, you shouldn't need to go through every offer even when the skus is only "A" or "B" for example.
+
+    # Instead, find where all the offers that are available and put them in an ordered list based on priority. Then
+    # execute the offers in order until no offers are found. Then add the individual items to the basket total.
 
     for sku, sku_count in items.items():
         # SKU must be in the prices table
@@ -76,3 +91,36 @@ def checkout(skus: str):
         basket_total += (sku_count // closest_smaller_offer) * closest_smaller_price
 
     return basket_total
+
+# for reference
+# prices = {
+#         'A': {
+#             "price": 50,
+#             "offers": {
+#                 3: 130,
+#                 5: 200
+#             }
+#         },
+#         'B': {
+#             "price": 30,
+#             "offers": {
+#                 2: 45
+#             }
+#         },
+#         'C': {
+#             "price": 20,
+#             "offers": {}
+#         },
+#         'D': {
+#             "price": 15,
+#             "offers": {}
+#         },
+#         'E': {
+#             "price": 40,
+#             "offers": {
+#                 # TODO: Implement this offer
+#                 2: "get one B free"
+#             }
+#         }
+#     }
+
