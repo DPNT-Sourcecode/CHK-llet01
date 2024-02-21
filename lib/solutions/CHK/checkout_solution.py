@@ -76,4 +76,3 @@ def checkout(skus: str):
         basket_total += (sku_count // closest_smaller_offer) * closest_smaller_price
 
     return basket_total
-
