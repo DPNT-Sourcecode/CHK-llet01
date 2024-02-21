@@ -41,7 +41,7 @@ def checkout(skus: str):
 
         # No offers are possible if the count is less than the offer or no offers exist
         # Assuming offers are sorted in ascending order
-        if not bool(prices[sku]["offers"]) or sku_count < prices[sku]["offers"].keys()[0]:
+        if not bool(prices[sku]["offers"]) or sku_count < list(prices[sku]["offers"].keys())[0]:
             basket_total += sku_count * prices[sku]["price"]
             continue
 
@@ -56,17 +56,19 @@ def checkout(skus: str):
         for offer_count, offer_price in prices[sku]["offers"].items():
             if offer_count < sku_count:
                 closest_smaller_offer = offer_count
+                closest_smaller_price = offer_price
             if offer_count > sku_count:
                 break
 
         # Add the left over individual items to the basket total
-        basket_total += sku_count % closest_smaller_offer * prices[sku]["price"]
+        basket_total += (sku_count % closest_smaller_offer) * prices[sku]["price"]
         # Add the offer to the basket total
-        
+        basket_total += (sku_count // closest_smaller_offer) * closest_smaller_price
 
 
 
     return basket_total
+
 
 
 
