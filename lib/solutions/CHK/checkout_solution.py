@@ -7,7 +7,8 @@ def checkout(skus: str):
         'A': {
             "price": 50,
             "offers": {
-                3: 130
+                3: 130,
+                5: 200
             }
         },
         'B': {
@@ -23,6 +24,13 @@ def checkout(skus: str):
         'D': {
             "price": 15,
             "offers": {}
+        },
+        'E': {
+            "price": 40,
+            "offers": {
+                # TODO: Implement this offer
+                2: "get one B free"
+            }
         }
     }
     # Get the list of items with a number per item
@@ -68,3 +76,4 @@ def checkout(skus: str):
         basket_total += (sku_count // closest_smaller_offer) * closest_smaller_price
 
     return basket_total
+
