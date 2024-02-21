@@ -1,6 +1,8 @@
 # noinspection PyUnusedLocal
 # skus = unicode string
 def checkout(skus: str):
+    if not isinstance(skus, str):
+        return -1
     prices = {
         'A': {
             "price": 50,
@@ -65,9 +67,8 @@ def checkout(skus: str):
         # Add the offer to the basket total
         basket_total += (sku_count // closest_smaller_offer) * closest_smaller_price
 
-
-
     return basket_total
+
 
 
 

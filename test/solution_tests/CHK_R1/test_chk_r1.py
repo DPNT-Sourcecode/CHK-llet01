@@ -13,4 +13,6 @@ class TestCHK_R1():
         assert checkout_solution.checkout("AAAAAA") == 260
 
     def test_checkout_offer_and_individual(self):
-        assert checkout_solution.checkout("AAAAAAAA") == 330
+        assert checkout_solution.checkout("AAAAAAAA") == 360
+        assert checkout_solution.checkout("AAAAABBB") == 
+
