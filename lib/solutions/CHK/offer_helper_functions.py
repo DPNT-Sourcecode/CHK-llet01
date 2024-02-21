@@ -39,6 +39,7 @@ def n_in_items_offer(items, ordered_bundle_items: set[str], bundle_size, bundle_
         return 0
 
     bundle_basket_size = sum([items[item] for item in ordered_bundle_items if item in items and items[item] > 0])
+    bundle_basket_size = bundle_basket_size - (bundle_basket_size % bundle_size)
     value = (bundle_basket_size // bundle_size) * bundle_price
 
     for item in ordered_bundle_items:
@@ -55,7 +56,3 @@ def n_in_items_offer(items, ordered_bundle_items: set[str], bundle_size, bundle_
         del items[item]
 
     return value
-
-
-
-

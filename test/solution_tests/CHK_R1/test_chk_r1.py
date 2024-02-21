@@ -37,11 +37,9 @@ class TestCHK_R1():
     def test_checkout_items_in_set_offer(self):
         # assert checkout_solution.checkout("XTS") == 45
         # assert checkout_solution.checkout("STX") == 45
-        assert checkout_solution.checkout("XTST") == 63
+        # assert checkout_solution.checkout("SSS") == 45
+        assert checkout_solution.checkout("XTST") == 62
         assert checkout_solution.checkout("XTSTXS") == 90
-        assert checkout_solution.checkout("XTSTXSSS") == 130
+        assert checkout_solution.checkout("XTSTXSSS") == 124
         assert checkout_solution.checkout("XTFFSTXS") == 110
-
-
-
 
