@@ -5,13 +5,13 @@ def checkout(skus: str):
         'A': {
             "price": 50,
             "offers": {
-                "3": 130
+                3: 130
             }
         },
         'B': {
             "price": 30,
             "offers": {
-                "2": 45
+                2: 45
             }
         },
         'C': {
@@ -38,12 +38,16 @@ def checkout(skus: str):
         # SKU must be in the prices table
         if sku not in prices:
             return -1
+
+        # No offers are possible if the count is less than the offer or no offers exist
+        if prices[sku]["offers"] sku_count < prices[sku]["offers"].keys()[0]:
+            basket_total += sku_count * prices[sku]["price"]
+
         # Find any offers and add to the basket total
-        if str(sku_count) in prices[sku]["offers"]:
-            basket_total += prices[sku]["offers"][str(sku_count)]
+        if sku_count in prices[sku]["offers"]:
+            basket_total += prices[sku]["offers"][sku_count]
             continue
-        # If no offers are found and the SKU is valid then chard individually
-        basket_total += sku_count * prices[sku]["price"]
 
 
     return basket_total
+
