@@ -37,6 +37,11 @@ def n_in_items_offer(items, bundle_items: set[str], bundle_size, bundle_price):
         return 0
     bundles_basket = {(item, items[item]) for item in bundle_items}
     # Sort by price and remove the most expensive items
-    
+    bundles_basket = sorted(bundles_basket, key=lambda x: x[1], reverse=True)
+
+    # Remove sets of items from bundles basket until there is no bundle size items left
+    while max(bundles_basket.values()) >= bundle_size:
+        for item, count in bundles_basket:
+
 
 

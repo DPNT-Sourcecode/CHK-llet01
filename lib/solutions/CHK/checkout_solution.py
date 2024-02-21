@@ -8,7 +8,7 @@ def checkout(skus: str):
         return -1
 
     # Get the list of items with a number per item
-    items = {}
+    items: dict[str, int] = {}
     items_list = list(skus)
     for item in items_list:
         if item in items:
@@ -132,3 +132,4 @@ def checkout(skus: str):
 #             }
 #         }
 #     }
+
