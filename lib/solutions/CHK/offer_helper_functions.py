@@ -35,5 +35,8 @@ def n_in_items_offer(items, bundle_items: set[str], bundle_size, bundle_price):
     # Check if at least bundle_size amount of items is in the basket
     if sum([list(items.keys()).count(item) for item in bundle_items]) < bundle_size:
         return 0
-    bundles_basket = 
+    bundles_basket = {(item, items[item]) for item in bundle_items}
+    # Sort by price and remove the most expensive items
+    
+
 
