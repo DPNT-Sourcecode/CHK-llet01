@@ -85,7 +85,7 @@ def checkout(skus: str):
 
         # Find any 'perfect' offers and add to the basket total
         if sku_count in prices[sku]["offers"].keys():
-            if prices[sku]["offers"][sku_count]["priority"] not in offer_queue:
+            if prices[sku]["offers"][sku_count]["priority"] not in offer_queue.keys():
                 offer_queue[prices[sku]["offers"][sku_count]["priority"]] = []
             offer_queue[prices[sku]["offers"][sku_count]["priority"]].append(
                 {"sku": sku, "count": sku_count, "offer": prices[sku]["offers"][sku_count]})
@@ -101,6 +101,8 @@ def checkout(skus: str):
             if offer_count > sku_count:
                 break
 
+        if prices[sku]["offers"][closest_smaller_offer_count]["priority"] not in offer_queue.keys():
+            offer_queue[prices[sku]["offers"][closest_smaller_offer_count]["priority"]] = []
         offer_queue[prices[sku]["offers"][closest_smaller_offer_count]["priority"]].append(
             {"sku": sku, "count": sku_count, "offer": prices[sku]["offers"][closest_smaller_offer_count]})
 
@@ -175,6 +177,7 @@ def checkout(skus: str):
 #             }
 #         }
 #     }
+
 
 
 
