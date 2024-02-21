@@ -18,4 +18,3 @@ class TestSum():
         except Exception as e:
             assert e.__class__.__name__ == "ValueError"
             assert str(e) == "x and y should be integers"
-
