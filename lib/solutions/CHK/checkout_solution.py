@@ -39,7 +39,6 @@ def checkout(skus: str):
         'E': {
             "price": 40,
             "offers": {
-                # TODO: Implement this offer
                 2: {
                     "offer": x_for_y_offer,
                     "price": 0,
@@ -84,6 +83,8 @@ def checkout(skus: str):
 
         # Find any 'perfect' offers and add to the basket total
         if sku_count in prices[sku]["offers"].keys():
+            if prices[sku]["offers"][sku_count]["priority"] not in offer_queue:
+                offer_queue[prices[sku]["offers"][sku_count]["priority"]] = []
             offer_queue[prices[sku]["offers"][sku_count]["priority"]].append(
                 {"sku": sku, "count": sku_count, "offer": prices[sku]["offers"][sku_count]["offer"]})
             continue
@@ -172,4 +173,5 @@ def checkout(skus: str):
 #             }
 #         }
 #     }
+
 
