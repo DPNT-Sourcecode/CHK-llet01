@@ -106,6 +106,10 @@ def checkout(skus: str):
         basket_total += sum(
             [offer["offer"](items, offer["sku"], offer["count"], offer["offer"]) for offer in offer_queue[priority]])
 
+    # Add the individual items to the basket total
+    for sku, sku_count in items.items():
+        basket_total += sku_count * prices[sku]["price"]
+
     return basket_total
 
 # for reference
@@ -168,3 +172,4 @@ def checkout(skus: str):
 #             }
 #         }
 #     }
+
