@@ -33,29 +33,29 @@ def BOGOF_offer(items, sku, sku_count, offer):
     return 0
 
 
-def n_in_items_offer(items, bundle_items: set[str], bundle_size, bundle_price):
+def n_in_items_offer(items, ordered_bundle_items: set[str], bundle_size, bundle_price):
     # Check if at least bundle_size amount of items is in the basket
-    if sum([list(items.keys()).count(item) for item in bundle_items]) < bundle_size:
+    if sum([list(items.keys()).count(item) for item in ordered_bundle_items]) < bundle_size:
         return 0
 
-    bundles_basket = {(item, items[item]) for item in bundle_items if item in items and items[item] > 0}
-    # Sort by price and remove the most expensive items
-    bundles_basket = dict(sorted(bundles_basket, key=lambda x: x[1], reverse=True))
-    bundle_basket_size = sum(list(bundles_basket.values()))
+    bundle_basket_size = sum([items[item] for item in ordered_bundle_items if item in items and items[item] > 0])
     value = (bundle_basket_size // bundle_size) * bundle_price
 
-    for item, count in bundles_basket.items():
+    for item in ordered_bundle_items:
+        if item not in items:
+            continue
         if bundle_basket_size <= 0:
             break
 
-        if count > bundle_basket_size:
+        if items[item] > bundle_basket_size:
             items[item] -= bundle_basket_size
             break
 
-        bundle_basket_size -= count
+        bundle_basket_size -= items[item]
         del items[item]
 
     return value
+
 
 
 
