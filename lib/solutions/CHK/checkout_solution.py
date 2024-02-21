@@ -21,7 +21,7 @@ def checkout(skus: str):
     offer_queue: dict[int, list] = {}
 
     # Apply bundle offers first
-    basket_total = n_in_items_offer(items, ("S", "T", "X", "Y", "Z"), 3, 45)
+    basket_total = n_in_items_offer(items, ("Z", "S", "T", "Y", "X"), 3, 45)
 
     # Find all the offers that are available
     for sku, sku_count in items.items():
@@ -61,4 +61,5 @@ def checkout(skus: str):
         basket_total += sku_count * prices[sku]["price"]
 
     return basket_total
+
 
