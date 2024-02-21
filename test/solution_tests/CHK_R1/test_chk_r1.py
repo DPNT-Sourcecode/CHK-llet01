@@ -17,13 +17,14 @@ class TestCHK_R1():
         assert checkout_solution.checkout("AAAABBB") == 255
 
     def test_checkout_BOGOF_rule(self):
-        # assert checkout_solution.checkout("EE") == 80
-        # assert checkout_solution.checkout("EEB") == 80
-        # assert checkout_solution.checkout("EEEB") == 120
-        # assert checkout_solution.checkout("EEEBB") == 150
-        # assert checkout_solution.checkout("BBEEE") == 150
+        assert checkout_solution.checkout("EE") == 80
+        assert checkout_solution.checkout("EEB") == 80
+        assert checkout_solution.checkout("EEEB") == 120
+        assert checkout_solution.checkout("EEEBB") == 150
+        assert checkout_solution.checkout("BBEEE") == 150
         assert checkout_solution.checkout("EEEEBB") == 160
         assert checkout_solution.checkout("BEBEEE") == 160
+
 
 
 
