@@ -33,4 +33,3 @@ class TestCHK_R1():
         assert checkout_solution.checkout("FFFFF") == 40
         assert checkout_solution.checkout("FFFFFF") == 40
         assert checkout_solution.checkout("FFBEBEEEFFFF") == 200
-

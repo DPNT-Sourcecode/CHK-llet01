@@ -152,10 +152,10 @@ def checkout(skus: str):
         'U': {
             "price": 40,
             "offers": {
-                3: {
+                4: {
                     "offer_function": BOGOF_offer,
                     # "price": 120,
-                    "count": 3,
+                    "count": 4,
                     "offer_count": 1,
                     "priority": 1
                 }
@@ -309,5 +309,3 @@ def checkout(skus: str):
 #             }
 #         }
 #     }
-
-
