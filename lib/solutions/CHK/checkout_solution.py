@@ -13,6 +13,7 @@ def checkout(skus: str):
                 3: {
                     "offer": n_for_m_offer,
                     "price": 130,
+                    "count": 3,
                     "priority": 1  # Doesn't matter atm
                 },
                 5: 200
@@ -24,6 +25,7 @@ def checkout(skus: str):
                 2: {
                     "offer": n_for_m_offer,
                     "price": 45,
+                    "count": 2,
                     "priority": 2
                 }
             }
@@ -86,7 +88,7 @@ def checkout(skus: str):
             if prices[sku]["offers"][sku_count]["priority"] not in offer_queue:
                 offer_queue[prices[sku]["offers"][sku_count]["priority"]] = []
             offer_queue[prices[sku]["offers"][sku_count]["priority"]].append(
-                {"sku": sku, "count": sku_count, "offer": prices[sku]["offers"][sku_count]["offer"]})
+                {"sku": sku, "count": sku_count, "offer": prices[sku]["offers"][sku_count]})
             continue
 
         # Find the largest offer that is less than the count
@@ -100,7 +102,7 @@ def checkout(skus: str):
                 break
 
         offer_queue[prices[sku]["offers"][closest_smaller_offer_count]["priority"]].append(
-            {"sku": sku, "count": sku_count, "offer": prices[sku]["offers"][closest_smaller_offer_count]["offer"]})
+            {"sku": sku, "count": sku_count, "offer": prices[sku]["offers"][closest_smaller_offer_count]})
 
     # Execute the offers in order
     for priority in sorted(offer_queue.keys()):
@@ -173,5 +175,6 @@ def checkout(skus: str):
 #             }
 #         }
 #     }
+
 
 
