@@ -24,7 +24,3 @@ class TestCHK_R1():
         assert checkout_solution.checkout("BBEEE") == 150
         assert checkout_solution.checkout("EEEEBB") == 160
         assert checkout_solution.checkout("BEBEEE") == 160
-
-
-
-

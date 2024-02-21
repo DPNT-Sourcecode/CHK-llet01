@@ -20,5 +20,3 @@ def x_for_y_offer(items, sku, sku_count, offer):
         items[offer["offer_sku"]] = 0
     # X items will be charged individually at the end
     return 0
-
-
