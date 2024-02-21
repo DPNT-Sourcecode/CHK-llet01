@@ -35,11 +35,16 @@ class TestCHK_R1():
         assert checkout_solution.checkout("FFBEBEEEFFFF") == 200
 
     def test_checkout_items_in_set_offer(self):
-        # assert checkout_solution.checkout("XTS") == 45
-        # assert checkout_solution.checkout("STX") == 45
-        # assert checkout_solution.checkout("SSS") == 45
+        assert checkout_solution.checkout("XTS") == 45
+        assert checkout_solution.checkout("STX") == 45
+        assert checkout_solution.checkout("SSS") == 45
+        assert checkout_solution.checkout("SSSZ") == 65
+        assert checkout_solution.checkout("ZZZ") == 45
         assert checkout_solution.checkout("XTST") == 62
         assert checkout_solution.checkout("XTSTXS") == 90
         assert checkout_solution.checkout("XTSTXSSS") == 124
         assert checkout_solution.checkout("XTFFSTXS") == 110
 
+# {"method":"checkout","params":["SSS"],"id":"CHK_R5_141"}, expected: 45, got: 60
+#  - {"method":"checkout","params":["SSSZ"],"id":"CHK_R5_142"}, expected: 65, got: 81
+#  - {"method":"checkout","params":["ZZZ"],"id":"CHK_R5_143"}, expected: 45, got: 63
