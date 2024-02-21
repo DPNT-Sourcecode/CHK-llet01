@@ -24,7 +24,7 @@ from runner.user_input_action import get_user_input
     To run your unit tests locally:
        PYTHONPATH=lib python -m pytest -q test/solution_tests/
  
-  ~~~~~~~~~~ The workflow ~~~~~~~~~~~~~
+  ~~~~~~~~~~ The workflow ~~~~~~~~~~d~~~
  
     By running this file you interact with a challenge server.
     The interaction follows a request-response pattern:
@@ -71,3 +71,4 @@ ChallengeSession\
     .with_config(Utils.get_config())\
     .with_action_provider(lambda: get_user_input(sys.argv[1:]))\
     .start()
+
