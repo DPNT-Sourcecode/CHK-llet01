@@ -48,7 +48,7 @@ def checkout(skus: str):
             "offers": {
                 2: {
                     "offer_function": x_for_y_offer,
-                    "price": 0,
+                    # "price": 0,
                     "priority": 1,
                     "count": 2,
                     "offer_sku": "B",
@@ -61,13 +61,88 @@ def checkout(skus: str):
             "offers": {
                 3: {
                     "offer_function": BOGOF_offer,
-                    "price": 20,
+                    # "price": 20,
                     "count": 3,
                     "offer_count": 1,
                     "priority": 1
                 }
             }
-        }
+        },
+        'G': {"price": 20, "offers": {}},
+        'H': {
+            "price": 10,
+            "offers": {
+                5: {
+                    "offer_function": n_for_m_offer,
+                    "price": 45,
+                    "count": 5,
+                    "priority": 1
+                },
+                10: {
+                    "offer_function": n_for_m_offer,
+                    "price": 80,
+                    "count": 10,
+                    "priority": 2
+                }
+            }
+        },
+        'I': {"price": 35, "offers": {}},
+        'J': {"price": 60, "offers": {}},
+        'K': {
+            "price": 80,
+            "offers": {
+                2: {
+                    "offer_function": n_for_m_offer,
+                    "price": 150,
+                    "count": 2,
+                    "priority": 1
+                }
+            }
+        },
+        'L': {"price": 90, "offers": {}},
+        'M': {"price": 15, "offers": {}},
+        'N': {
+            "price": 40,
+            "offers": {
+                3: {
+                    "offer_function": x_for_y_offer,
+                    # "price": 120,
+                    "count": 3,
+                    "priority": 1,
+                    "offer_sku": "M",
+                    "offer_count": 1
+                }
+            }
+        },
+        'O': {"price": 10, "offers": {}},
+        'P': {
+            "price": 50,
+            "offers": {
+                5: {
+                    "offer_function": n_for_m_offer,
+                    "price": 200,
+                    "count": 5,
+                    "priority": 1
+                }
+            }
+        },
+        'Q': {
+            "price": 30,
+            "offers": {
+                3: {
+                    "offer_function": n_for_m_offer,
+                    "price": 80,
+                    "count": 3,
+                    "priority": 1
+                }
+            }
+        },
+        'R': {"price": 50, "offers": {
+            3: {
+                "offer_function": x_for_y_offer,
+                ""
+            }
+        }},
     }
 
     # Get the list of items with a number per item
@@ -195,3 +270,4 @@ def checkout(skus: str):
 #             }
 #         }
 #     }
+
