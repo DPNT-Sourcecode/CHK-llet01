@@ -37,7 +37,7 @@ def n_in_items_offer(items, bundle_items: set[str], bundle_size, bundle_price):
         return 0
 
     value = 0
-    bundles_basket = {(item, items[item]) for item in bundle_items}
+    bundles_basket = {(item, items[item]) for item in bundle_items if item in items and items[item] > 0}
     # Sort by price and remove the most expensive items
     bundles_basket = dict(sorted(bundles_basket, key=lambda x: x[1], reverse=True))
 
@@ -47,15 +47,17 @@ def n_in_items_offer(items, bundle_items: set[str], bundle_size, bundle_price):
         for i in range(bundle_size):
             bundles_basket[list(bundles_basket)[i]] -= 1
             items[list(bundles_basket)[i]] -= 1
-            value += bundle_price
             if bundles_basket[list(bundles_basket)[i]] == 0:
                 delete_items.append(list(bundles_basket)[i])
+
+        value += bundle_price
 
         for item_key in delete_items:
             del bundles_basket[item_key]
             del items[item_key]
 
     return value
+
 
 
 

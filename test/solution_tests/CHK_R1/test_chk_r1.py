@@ -35,5 +35,6 @@ class TestCHK_R1():
         assert checkout_solution.checkout("FFBEBEEEFFFF") == 200
 
     def test_checkout_items_in_set_offer(self):
-        assert checkout_solution.checkout("STX") == 45
+        assert checkout_solution.checkout("XTS") == 45
+
 
