@@ -50,6 +50,7 @@ def checkout(skus: str):
                     "offer_function": x_for_y_offer,
                     "price": 0,
                     "priority": 1,
+                    "count": 2,
                     "offer_sku": "B",
                     "offer_count": 1
                 }
@@ -103,8 +104,8 @@ def checkout(skus: str):
             if offer_count < sku_count:
                 if prices[sku]["offers"][offer_count]["priority"] not in offer_queue.keys():
                     offer_queue[prices[sku]["offers"][offer_count]["priority"]] = []
-                    offer_queue[prices[sku]["offers"][offer_count]["priority"]].append(
-                        {"sku": sku, "count": sku_count, "offer": prices[sku]["offers"][offer_count]})
+                offer_queue[prices[sku]["offers"][offer_count]["priority"]].append(
+                    {"sku": sku, "count": sku_count, "offer": prices[sku]["offers"][offer_count]})
             #     closest_smaller_offer_count = offer_count
             #     closest_smaller_price = offer_price
             # if offer_count > sku_count:
@@ -182,4 +183,5 @@ def checkout(skus: str):
 #             }
 #         }
 #     }
+
 
