@@ -21,6 +21,7 @@ def x_for_y_offer(items, sku, sku_count, offer):
     # X items will be charged individually at the end
     return 0
 
+
 def BOGOF_offer(items, sku, sku_count, offer):
     # check if the offer is possible
     if sku_count < offer["count"]:
@@ -30,6 +31,7 @@ def BOGOF_offer(items, sku, sku_count, offer):
     if items[sku] < 0:
         items[sku] = 0
     return 0
+
 
 def n_in_items_offer(items, bundle_items: set[str], bundle_size, bundle_price):
     # Check if at least bundle_size amount of items is in the basket
