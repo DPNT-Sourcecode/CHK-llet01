@@ -21,5 +21,3 @@ class TestCHK_R1():
         assert checkout_solution.checkout("EEEB") == 120
         assert checkout_solution.checkout("EEEBB") == 125
         assert checkout_solution.checkout("BBEEE") == 125
-
-

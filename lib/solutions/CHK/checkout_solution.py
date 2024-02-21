@@ -101,20 +101,20 @@ def checkout(skus: str):
         closest_smaller_price = 0
         for offer_count, offer_price in prices[sku]["offers"].items():
             if offer_count < sku_count:
-                closest_smaller_offer_count = offer_count
-                closest_smaller_price = offer_price
-            if offer_count > sku_count:
-                break
-
-        if prices[sku]["offers"][closest_smaller_offer_count]["priority"] not in offer_queue.keys():
-            offer_queue[prices[sku]["offers"][closest_smaller_offer_count]["priority"]] = []
-        offer_queue[prices[sku]["offers"][closest_smaller_offer_count]["priority"]].append(
-            {"sku": sku, "count": sku_count, "offer": prices[sku]["offers"][closest_smaller_offer_count]})
+                if prices[sku]["offers"][offer_count]["priority"] not in offer_queue.keys():
+                    offer_queue[prices[sku]["offers"][offer_count]["priority"]] = []
+                    offer_queue[prices[sku]["offers"][offer_count]["priority"]].append(
+                        {"sku": sku, "count": sku_count, "offer": prices[sku]["offers"][offer_count]})
+            #     closest_smaller_offer_count = offer_count
+            #     closest_smaller_price = offer_price
+            # if offer_count > sku_count:
+            #     break
 
     # Execute the offers in order
     for priority in sorted(offer_queue.keys()):
         basket_total += sum(
-            [offer["offer"]["offer_function"](items, offer["sku"], offer["count"], offer["offer"]) for offer in offer_queue[priority]])
+            [offer["offer"]["offer_function"](items, offer["sku"], offer["count"], offer["offer"]) for offer in
+             offer_queue[priority]])
 
     # Add the individual items to the basket total
     for sku, sku_count in items.items():
@@ -182,10 +182,3 @@ def checkout(skus: str):
 #             }
 #         }
 #     }
-
-
-
-
-
-
-
