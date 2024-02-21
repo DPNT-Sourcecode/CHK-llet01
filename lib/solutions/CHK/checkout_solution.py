@@ -51,13 +51,20 @@ def checkout(skus: str):
             continue
 
         # Find the largest offer that is less than the count
-        closest_larger_offer = 0
+        closest_smaller_offer = 0
+        closest_smaller_price = 0
         for offer_count, offer_price in prices[sku]["offers"].items():
+            if offer_count < sku_count:
+                closest_smaller_offer = offer_count
             if offer_count > sku_count:
-                basket_total += sku_count % offer_count * offer_price
-                
+                break
+
+
+        basket_total += sku_count % closest_smaller_offer * closest_smaller_price
+
 
 
     return basket_total
+
 
 
