@@ -34,10 +34,16 @@ def checkout(skus: str):
 
     basket_total = 0
 
-    for item in items:
-        if item not in prices:
+    for sku, sku_count in items.items():
+        # SKU must be in the prices table
+        if sku not in prices:
             return -1
-        
-    raise NotImplementedError()
+        # Find any offers and add to the basket total
+        if str(sku_count) in prices[sku]["offers"]:
+            basket_total += prices[sku]["offers"][str(sku_count)]
+            continue
+        # If no offers are found and the SKU is valid then chard individually
+        basket_total += sku_count * prices[sku]["price"]
 
 
+    return basket_total
